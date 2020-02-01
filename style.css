@@ -1,0 +1,28 @@
+body {
+    color: blue;
+}
+
+
+#name, #price, #image {
+   
+    display: inline-block;
+    padding: 15px;
+    overflow: hidden;
+    width: 30%;
+  
+}
+
+.names, .prices, .images {
+    max-width: fit-content;
+    border: 1px solid green;
+   
+}
+
+/* .names {
+   
+} */
+
+
+img {
+    max-width: 200px;
+}
