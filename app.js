@@ -6,6 +6,7 @@ $(() => {
     let $prod = $('#name')
     let $price = $('#price')
     let $image = $('#image')
+    let $favorite = $('#favorite')
     let parentDiv = $('<div>').addClass('parent')
         $('#container').append(parentDiv)
 
@@ -28,12 +29,14 @@ $(() => {
 
                     
                     let $prodDiv = $('<div>').addClass('product')
-
+    
                     let brandDiv = $('<div>').addClass('brands')
                     let nameDiv = $('<div>').addClass('names');
                     let priceDiv = $('<div>').addClass('prices');
                     let imageDiv = $('<div>').addClass('images');
+                    let faveDiv = $('<div>').addClass('favorites')
                     let imgUrl = $('<img>');
+                    let faveUrl = $('<img>');
 
             
 
@@ -52,16 +55,30 @@ $(() => {
                 $image.append(imageDiv)
                 imageDiv.append(imgUrl)
 
+                faveUrl.attr('src', 'https://img.favpng.com/13/20/24/heart-outline-clip-art-png-favpng-ehm1nJyYBQ3jDcCLywzBrGvpD.jpg').css('max-height', '40px')
+                $favorite.append(faveDiv);
+                faveDiv.append(faveUrl)
+                
+
                 $("img").on("error", function () {
                     $(this).attr("src", "https://www.warnersstellian.com/Content/images/product_image_not_available.png");
                 });
 
-                $prodDiv.append(brandDiv, nameDiv, priceDiv, imageDiv)
+                $prodDiv.append(brandDiv, nameDiv, priceDiv, imageDiv, faveDiv)
+                
                 parentDiv.append($prodDiv)
 
-                typeInputBox.val('')
+                brandInputBox.val('')
+
+                faveUrl.on('click', (event) => {
+                    event.preventDefault();
+                    faveUrl.attr('src', 'https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/red-heart.png')
+                    console.log( `${x.name} added to favorites`)
+
+                    });
+
                 }
-            });
+        });
         },
         () => {
             console.log('something went wrong')
@@ -93,9 +110,10 @@ $(() => {
                         let nameDiv = $('<div>').addClass('names');
                         let priceDiv = $('<div>').addClass('prices');
                         let imageDiv = $('<div>').addClass('images');
+                        let faveDiv = $('<div>').addClass('favorites')
                         let imgUrl = $('<img>');
+                        let faveUrl = $('<img>');
     
-                
     
                     if (x.price !== '0.0'){
     
@@ -111,15 +129,30 @@ $(() => {
                     imgUrl.attr('src', x.image_link)
                     $image.append(imageDiv)
                     imageDiv.append(imgUrl)
+
+                    faveUrl.attr('src', 'https://img.favpng.com/13/20/24/heart-outline-clip-art-png-favpng-ehm1nJyYBQ3jDcCLywzBrGvpD.jpg').css('max-height', '40px')
+                    $favorite.append(faveDiv);
+                    faveDiv.append(faveUrl)
+                    
     
                     $("img").on("error", function () {
                         $(this).attr("src", "https://www.warnersstellian.com/Content/images/product_image_not_available.png");
                     });
     
-                    $prodDiv.append(brandDiv, nameDiv, priceDiv, imageDiv)
+                    $prodDiv.append(brandDiv, nameDiv, priceDiv, imageDiv, faveDiv)
+                    
                     parentDiv.append($prodDiv)
     
                     brandInputBox.val('')
+
+                    faveUrl.on('click', (event) => {
+                        event.preventDefault();
+                        faveUrl.attr('src', 'https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/red-heart.png')
+                        console.log( `${x.name} added to favorites`)
+
+                        });
+
+
                     }
                 });
             },
