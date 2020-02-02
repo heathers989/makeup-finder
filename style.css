@@ -71,3 +71,7 @@ input {
 img {
     max-width: 200px;
 }
+
+.fave-icons {
+    cursor: pointer;
+}

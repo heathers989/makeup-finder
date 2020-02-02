@@ -36,7 +36,7 @@ $(() => {
                     let imageDiv = $('<div>').addClass('images');
                     let faveDiv = $('<div>').addClass('favorites')
                     let imgUrl = $('<img>');
-                    let faveUrl = $('<img>');
+                    let faveUrl = $('<img>').addClass('fave-icons');
 
             
 
@@ -68,7 +68,7 @@ $(() => {
                 
                 parentDiv.append($prodDiv)
 
-                brandInputBox.val('')
+                typeInputBox.val('')
 
                 faveUrl.on('click', (event) => {
                     event.preventDefault();
@@ -112,7 +112,7 @@ $(() => {
                         let imageDiv = $('<div>').addClass('images');
                         let faveDiv = $('<div>').addClass('favorites')
                         let imgUrl = $('<img>');
-                        let faveUrl = $('<img>');
+                        let faveUrl = $('<img>').addClass('fave-icons');
     
     
                     if (x.price !== '0.0'){
