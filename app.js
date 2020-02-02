@@ -8,6 +8,7 @@ $(() => {
     let parentDiv = $('<div>').addClass('parent')
         $('#container').append(parentDiv)
 
+
  $('form').on('submit', (event) =>{
 
     event.preventDefault();
@@ -20,8 +21,6 @@ $(() => {
         url: `http://makeup-api.herokuapp.com/api/v1/products.json?product_type=${userInput}`
     }).then(
         data => {
-
-            
             
 
                 data.map(x => { 
@@ -51,6 +50,10 @@ $(() => {
                 imgUrl.attr('src', x.image_link)
                 $image.append(imageDiv)
                 imageDiv.append(imgUrl)
+
+                $("img").on("error", function () {
+                    $(this).attr("src", "https://www.warnersstellian.com/Content/images/product_image_not_available.png");
+                });
 
                 $prodDiv.append(brandDiv, nameDiv, priceDiv, imageDiv)
                 parentDiv.append($prodDiv)
