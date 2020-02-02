@@ -23,7 +23,7 @@ body {
 
 .brands .names, .prices {
     margin-right: 4px;
-    
+  
 }
 
 .product {
@@ -32,8 +32,12 @@ body {
     align-items: center;
 }
 
+.brands, .names {
+    padding-left: 30px;
+}
+
 .prices {
-    padding-left: 50px;
+    padding-left: 30px;
 }
 
 /* .names {
