@@ -3,17 +3,17 @@ body {
 }
 
 
-#name, #price, #image {
+#brand, #name, #price, #image {
    
     display: inline-block;
     padding: 15px;
     overflow: hidden;
-    width: 30%;
+    width: 20%;
     font-size: xx-large;
   
 }
 
-.names, .prices, .images {
+.brands, .names, .prices, .images {
     width: 20%;
     /* border: 1px solid green; */
     margin-bottom: 4px;
@@ -21,7 +21,7 @@ body {
    
 }
 
-.names, .prices {
+.brands .names, .prices {
     margin-right: 4px;
     
 }
