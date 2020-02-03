@@ -7,9 +7,11 @@
     <title>Makeup Finder</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" charset="utf-8"></script>
     <script src="app.js" charset="utf-8"></script>
+    <link href='https://fonts.googleapis.com/css?family=Rhodium+Libre' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+        <button class="button" id="openModal">View Favorites</button>
     <h1>Welcome to the Makeup Finder app!</h1>
 
     <form id ='type-form'>
@@ -28,6 +30,14 @@
          <div id ='price'>Price</div>
          <div id ='image'>Image</div>
          <div id ='favorite'>Favorite</div>
+
+         <div id="modal">
+             <div id="modal-contents">
+                <button class="button" id="close" href="#">Close</button>
+                 <p></p>
+                 
+             </div>
+         </div>
    
 </div>
 </body>

@@ -1,5 +1,9 @@
 $(() => {
 
+    const $openBtn = $('#openModal');
+    const $modal = $('#modal');
+    const modalContents = $('#modal-contents')
+    const $closeBtn = $('#close');
     let typeInputBox = $('#input-box-type');
     let brandInputBox = $('#input-box-brand')
     let $brand = $('#brand')
@@ -9,6 +13,17 @@ $(() => {
     let $favorite = $('#favorite')
     let parentDiv = $('<div>').addClass('parent')
         $('#container').append(parentDiv)
+
+    const openModal = () => {
+            $modal.css('display', 'block');
+          }
+
+    const closeModal = () => {
+            $modal.css('display', 'none');
+          }
+
+    $openBtn.on('click', openModal)
+    $closeBtn.on('click', closeModal);
 
 
  $('#type-form').on('submit', (event) =>{
@@ -20,7 +35,7 @@ $(() => {
     const userInput = $('input[type="text"]').val();
 
     $.ajax({
-        url: `http://makeup-api.herokuapp.com/api/v1/products.json?product_type=${userInput}`
+        url: `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=${userInput}`
     }).then(
         data => {
             
@@ -73,7 +88,14 @@ $(() => {
                 faveUrl.on('click', (event) => {
                     event.preventDefault();
                     faveUrl.attr('src', 'https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/red-heart.png')
-                    console.log( `${x.name} added to favorites`)
+
+                    let modalFave = $('<p>').text(`${x.name}`)
+
+                    $(imgUrl).clone().appendTo(modalFave)
+
+                    modalContents.append(modalFave);
+
+                    alert( `${x.name} added to favorites`)
 
                     });
 
@@ -96,7 +118,7 @@ $(() => {
         console.log('user input is', userInputBrand);
     
         $.ajax({
-            url: `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${userInputBrand}`
+            url: `https://makeup-api.herokuapp.com/api/v1/products.json?brand=${userInputBrand}`
         }).then(
             data => {
                 
@@ -148,7 +170,14 @@ $(() => {
                     faveUrl.on('click', (event) => {
                         event.preventDefault();
                         faveUrl.attr('src', 'https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/red-heart.png')
-                        console.log( `${x.name} added to favorites`)
+
+                        let modalFave = $('<p>').text(`${x.name}`)
+
+                    $(imgUrl).clone().appendTo(modalFave)
+
+                    modalContents.append(modalFave);
+
+                    alert( `${x.name} added to favorites`)
 
                         });
 
