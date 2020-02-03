@@ -88,10 +88,6 @@ img {
     max-width: 200px;
 }
 
-p > img {
-    margin-left: 5px;
-}
-
 .fave-icons {
     cursor: pointer;
 }
@@ -126,7 +122,7 @@ p > img {
 
 p {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
 
 }
