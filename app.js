@@ -71,8 +71,11 @@ $(() => {
                 imageDiv.append(imgUrl)
 
                 faveUrl.attr('src', 'https://img.favpng.com/13/20/24/heart-outline-clip-art-png-favpng-ehm1nJyYBQ3jDcCLywzBrGvpD.jpg').css('max-height', '40px')
+
+                faveUrl.attr('title', 'Click to add item to Favorites list')
                 $favorite.append(faveDiv);
                 faveDiv.append(faveUrl)
+            
                 
 
                 $("img").on("error", function () {
@@ -95,7 +98,9 @@ $(() => {
 
                     modalContents.append(modalFave);
 
-                    alert( `${x.name} added to favorites`)
+                    setTimeout(() => {
+                        alert( `${x.name} added to favorites`)
+                    }, 200)
 
                     });
 
@@ -153,8 +158,11 @@ $(() => {
                     imageDiv.append(imgUrl)
 
                     faveUrl.attr('src', 'https://img.favpng.com/13/20/24/heart-outline-clip-art-png-favpng-ehm1nJyYBQ3jDcCLywzBrGvpD.jpg').css('max-height', '40px')
+
+                    faveUrl.attr('title', 'Click to add item to Favorites list')
                     $favorite.append(faveDiv);
-                    faveDiv.append(faveUrl)
+                    faveDiv.append(faveUrl);
+                    
                     
     
                     $("img").on("error", function () {
@@ -177,7 +185,11 @@ $(() => {
 
                     modalContents.append(modalFave);
 
-                    alert( `${x.name} added to favorites`)
+                    setTimeout(() => {
+                        alert( `${x.name} added to favorites`)
+                    }, 200)
+
+                    
 
                         });
 
