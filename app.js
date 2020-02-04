@@ -64,7 +64,7 @@ $(() => {
                 nameDiv.html(x.name) 
                 $prod.append(nameDiv)
 
-                priceDiv.html(x.price)
+                priceDiv.html('$' + x.price)
                 $price.append(priceDiv)
                 
                 imgUrl.attr('src', x.image_link)
@@ -92,8 +92,6 @@ $(() => {
                 const addRemoveFave = function () {
 
                     $imgsrc = faveUrl.attr('src')
-
-                    console.log($imgsrc)
 
                     if ($imgsrc === "https://img.favpng.com/13/20/24/heart-outline-clip-art-png-favpng-ehm1nJyYBQ3jDcCLywzBrGvpD.jpg") {
 
@@ -155,7 +153,7 @@ $(() => {
         parentDiv.empty();
     
         const userInputBrand = $('#input-box-brand').val();
-        console.log('user input is', userInputBrand);
+        
     
         $.ajax({
             url: `https://makeup-api.herokuapp.com/api/v1/products.json?brand=${userInputBrand}`
@@ -185,8 +183,10 @@ $(() => {
                     nameDiv.html(x.name) 
                     $prod.append(nameDiv)
     
-                    priceDiv.html(x.price)
+                    
+                    priceDiv.html('$' + x.price)
                     $price.append(priceDiv)
+               
                     
                     imgUrl.attr('src', x.image_link)
                     $image.append(imageDiv)
@@ -213,8 +213,6 @@ $(() => {
                     const addRemoveFave = function () {
 
                         $imgsrc = faveUrl.attr('src')
-
-                        console.log($imgsrc)
 
                         if ($imgsrc === "https://img.favpng.com/13/20/24/heart-outline-clip-art-png-favpng-ehm1nJyYBQ3jDcCLywzBrGvpD.jpg") {
 
