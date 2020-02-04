@@ -1,5 +1,6 @@
 $(() => {
 
+    
     const $openBtn = $('#openModal');
     const $modal = $('#modal');
     const modalContents = $('#modal-contents')
@@ -175,23 +176,60 @@ $(() => {
     
                     brandInputBox.val('')
 
+                    const addRemoveFave = function () {
+
+                        $imgsrc = faveUrl.attr('src')
+
+                        console.log($imgsrc)
+
+                        if ($imgsrc === "https://img.favpng.com/13/20/24/heart-outline-clip-art-png-favpng-ehm1nJyYBQ3jDcCLywzBrGvpD.jpg") {
+
+                            faveUrl.attr('src', 'https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/red-heart.png')
+                            
+                            
+
+                            let modalFave = $('<p>').text(`${x.name}`)
+    
+                        $(imgUrl).clone().appendTo(modalFave)
+    
+                        modalContents.append(modalFave);
+    
+                        setTimeout(() => {
+                            alert( `${x.name} added to favorites`)
+                        }, 200)
+                        } else if ($imgsrc === 'https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/red-heart.png') {
+
+                            faveUrl.attr('src', 'https://img.favpng.com/13/20/24/heart-outline-clip-art-png-favpng-ehm1nJyYBQ3jDcCLywzBrGvpD.jpg').css('max-height', '40px')
+                           
+
+                            setTimeout(() => {
+                                alert( `${x.name} removed from favorites`)
+                            }, 200)
+                        }
+                    }
+
                     faveUrl.on('click', (event) => {
-                        event.preventDefault();
-                        faveUrl.attr('src', 'https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/red-heart.png')
+                        event.preventDefault()
+                        
+                        addRemoveFave()
+                    })
+                    // (event) => {
+                    //     event.preventDefault();
+                    //     faveUrl.attr('src', 'https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/red-heart.png')
 
-                        let modalFave = $('<p>').text(`${x.name}`)
+                    //     let modalFave = $('<p>').text(`${x.name}`)
 
-                    $(imgUrl).clone().appendTo(modalFave)
+                    // $(imgUrl).clone().appendTo(modalFave)
 
-                    modalContents.append(modalFave);
+                    // modalContents.append(modalFave);
 
-                    setTimeout(() => {
-                        alert( `${x.name} added to favorites`)
-                    }, 200)
+                    // setTimeout(() => {
+                    //     alert( `${x.name} added to favorites`)
+                    // }, 200)
 
                     
 
-                        });
+                    //     });
 
 
                     }
