@@ -97,11 +97,13 @@ $(() => {
 
                         faveUrl.attr('src', 'https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/red-heart.png')
                         
-                        
+                        let removeButton = $('<button>').addClass('remove-button').text('Remove')
 
                         let modalFave = $('<p>').text(`${x.name}`).attr('id', `${x.name}`)
 
                     $(imgUrl).clone().appendTo(modalFave)
+
+                    modalFave.append(removeButton)
 
                     modalContents.append(modalFave);
 
@@ -122,13 +124,19 @@ $(() => {
                             let toRemove = document.getElementById(x.name);
                         toRemove.remove(toRemove.selectedIndex);
 
-                        }
-
-                        
-
-                        
-
+                        }  
                     }
+                    $('.remove-button').on('click', (event) => {
+                        event.preventDefault()
+                        $(event.target).parent('p').remove();
+
+                        // if ($('.remove-button').siblings('img').attr('src') === imgUrl.attr('src')){
+                        //     console.log('this works')
+
+                        //     faveUrl.attr('src', 'https://img.favpng.com/13/20/24/heart-outline-clip-art-png-favpng-ehm1nJyYBQ3jDcCLywzBrGvpD.jpg').css('max-height', '40px')
+
+                        // }      
+                    })
                 }
 
                 faveUrl.on('click', (event) => {
@@ -136,6 +144,7 @@ $(() => {
                     
                     addRemoveFave()
                 })
+
 
                 }
         });
@@ -218,11 +227,13 @@ $(() => {
 
                             faveUrl.attr('src', 'https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/red-heart.png')
                             
-                            
+                            let removeButton = $('<button>').addClass('remove-button').text('Remove')
 
                             let modalFave = $('<p>').text(`${x.name}`).attr('id', `${x.name}`)
     
                         $(imgUrl).clone().appendTo(modalFave)
+
+                        modalFave.append(removeButton)
     
                         modalContents.append(modalFave);
     
@@ -244,12 +255,18 @@ $(() => {
                             toRemove.remove(toRemove.selectedIndex);
 
                             }
-
+                        } $('.remove-button').on('click', (event) => {
+                            event.preventDefault()
+                            $(event.target).parent('p').remove();
+    
+                            // if ($('.remove-button').siblings('img').attr('src') === imgUrl.attr('src')){
+                            //     console.log('this works')
+    
+                            //     faveUrl.attr('src', 'https://img.favpng.com/13/20/24/heart-outline-clip-art-png-favpng-ehm1nJyYBQ3jDcCLywzBrGvpD.jpg').css('max-height', '40px')
+    
+                            // }   
                             
-
-                            
-
-                        }
+                        })
                     }
 
                     faveUrl.on('click', (event) => {
