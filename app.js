@@ -89,11 +89,19 @@ $(() => {
 
                 typeInputBox.val('')
 
-                faveUrl.on('click', (event) => {
-                    event.preventDefault();
-                    faveUrl.attr('src', 'https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/red-heart.png')
+                const addRemoveFave = function () {
 
-                    let modalFave = $('<p>').text(`${x.name}`)
+                    $imgsrc = faveUrl.attr('src')
+
+                    console.log($imgsrc)
+
+                    if ($imgsrc === "https://img.favpng.com/13/20/24/heart-outline-clip-art-png-favpng-ehm1nJyYBQ3jDcCLywzBrGvpD.jpg") {
+
+                        faveUrl.attr('src', 'https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/red-heart.png')
+                        
+                        
+
+                        let modalFave = $('<p>').text(`${x.name}`).attr('id', `${x.name}`)
 
                     $(imgUrl).clone().appendTo(modalFave)
 
@@ -102,8 +110,34 @@ $(() => {
                     setTimeout(() => {
                         alert( `${x.name} added to favorites`)
                     }, 200)
+                    } else if ($imgsrc === 'https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/red-heart.png') {
 
-                    });
+                        faveUrl.attr('src', 'https://img.favpng.com/13/20/24/heart-outline-clip-art-png-favpng-ehm1nJyYBQ3jDcCLywzBrGvpD.jpg').css('max-height', '40px')
+                       
+
+                        setTimeout(() => {
+                            alert( `${x.name} removed from favorites`)
+                        }, 200)
+
+                        if ($('p').attr('id') === x.name) {
+
+                            let toRemove = document.getElementById(x.name);
+                        toRemove.remove(toRemove.selectedIndex);
+
+                        }
+
+                        
+
+                        
+
+                    }
+                }
+
+                faveUrl.on('click', (event) => {
+                    event.preventDefault()
+                    
+                    addRemoveFave()
+                })
 
                 }
         });
@@ -188,7 +222,7 @@ $(() => {
                             
                             
 
-                            let modalFave = $('<p>').text(`${x.name}`)
+                            let modalFave = $('<p>').text(`${x.name}`).attr('id', `${x.name}`)
     
                         $(imgUrl).clone().appendTo(modalFave)
     
@@ -205,6 +239,18 @@ $(() => {
                             setTimeout(() => {
                                 alert( `${x.name} removed from favorites`)
                             }, 200)
+
+                            if ($('p').attr('id') === x.name) {
+
+                                let toRemove = document.getElementById(x.name);
+                            toRemove.remove(toRemove.selectedIndex);
+
+                            }
+
+                            
+
+                            
+
                         }
                     }
 
@@ -213,24 +259,6 @@ $(() => {
                         
                         addRemoveFave()
                     })
-                    // (event) => {
-                    //     event.preventDefault();
-                    //     faveUrl.attr('src', 'https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/red-heart.png')
-
-                    //     let modalFave = $('<p>').text(`${x.name}`)
-
-                    // $(imgUrl).clone().appendTo(modalFave)
-
-                    // modalContents.append(modalFave);
-
-                    // setTimeout(() => {
-                    //     alert( `${x.name} added to favorites`)
-                    // }, 200)
-
-                    
-
-                    //     });
-
 
                     }
                 });
