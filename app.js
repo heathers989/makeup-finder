@@ -44,7 +44,7 @@ $(() => {
                 data.map(x => { 
 
                     
-                    let $prodDiv = $('<div>').addClass('product')
+                    let $prodDiv = $('<div>').addClass('product').attr('id', x.id)
     
                     let brandDiv = $('<div>').addClass('brands')
                     let nameDiv = $('<div>').addClass('names');
@@ -99,7 +99,7 @@ $(() => {
                         
                         let removeButton = $('<button>').addClass('remove-button').text('Remove')
 
-                        let modalFave = $('<p>').text(`${x.name}`).attr('id', `${x.name}`)
+                        let modalFave = $('<p>').text(`${x.name}`).attr('id', `${x.name}`).data('prodId', x.id)
 
                     $(imgUrl).clone().appendTo(modalFave)
 
@@ -128,15 +128,19 @@ $(() => {
                     }
                     $('.remove-button').on('click', (event) => {
                         event.preventDefault()
-                        $(event.target).parent('p').remove();
 
-                        // if ($('.remove-button').siblings('img').attr('src') === imgUrl.attr('src')){
-                        //     console.log('this works')
 
-                        //     faveUrl.attr('src', 'https://img.favpng.com/13/20/24/heart-outline-clip-art-png-favpng-ehm1nJyYBQ3jDcCLywzBrGvpD.jpg').css('max-height', '40px')
+                            const prodId = $(event.target).parent('p').data('prodId')
+                            console.log(prodId)
+                                
+                            $(`#${prodId} > div.favorites`).empty()
 
-                        // }      
-                    })
+                            $(`#${prodId} > div.favorites`).html( "<img height='40px' src='https://img.favpng.com/13/20/24/heart-outline-clip-art-png-favpng-ehm1nJyYBQ3jDcCLywzBrGvpD.jpg'>").css('max-height', '40px')
+
+                            $(event.target).parent('p').remove();
+
+                            
+                        })
                 }
 
                 faveUrl.on('click', (event) => {
@@ -173,7 +177,7 @@ $(() => {
                     data.map(x => { 
     
                         
-                        let $prodDiv = $('<div>').addClass('product')
+                        let $prodDiv = $('<div>').addClass('product').attr('id', x.id)
     
                         let brandDiv = $('<div>').addClass('brands')
                         let nameDiv = $('<div>').addClass('names');
@@ -219,6 +223,7 @@ $(() => {
     
                     brandInputBox.val('')
 
+
                     const addRemoveFave = function () {
 
                         $imgsrc = faveUrl.attr('src')
@@ -229,7 +234,7 @@ $(() => {
                             
                             let removeButton = $('<button>').addClass('remove-button').text('Remove')
 
-                            let modalFave = $('<p>').text(`${x.name}`).attr('id', `${x.name}`)
+                            let modalFave = $('<p>').text(`${x.name}`).attr('id', `${x.name}`).data('prodId', x.id)
     
                         $(imgUrl).clone().appendTo(modalFave)
 
@@ -255,16 +260,18 @@ $(() => {
                             toRemove.remove(toRemove.selectedIndex);
 
                             }
-                        } $('.remove-button').on('click', (event) => {
+                        } 
+                            $('.remove-button').on('click', (event) => {
                             event.preventDefault()
+
+                            const prodId = $(event.target).parent('p').data('prodId')
+                            console.log(prodId)
+                                
+                            $(`#${prodId} > div.favorites`).empty()
+
+                            $(`#${prodId} > div.favorites`).html( "<img height='40px' src='https://img.favpng.com/13/20/24/heart-outline-clip-art-png-favpng-ehm1nJyYBQ3jDcCLywzBrGvpD.jpg'>").css('max-height', '40px')
+
                             $(event.target).parent('p').remove();
-    
-                            // if ($('.remove-button').siblings('img').attr('src') === imgUrl.attr('src')){
-                            //     console.log('this works')
-    
-                            //     faveUrl.attr('src', 'https://img.favpng.com/13/20/24/heart-outline-clip-art-png-favpng-ehm1nJyYBQ3jDcCLywzBrGvpD.jpg').css('max-height', '40px')
-    
-                            // }   
                             
                         })
                     }

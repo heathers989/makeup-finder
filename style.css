@@ -4,6 +4,7 @@ body {
     
 }
 
+
 #openModal {
     color: dodgerblue
 }
@@ -69,6 +70,10 @@ button {
     align-items: center;
     color: cornflowerblue;
     font-size: large;
+}
+
+input {
+    width: min-content;
 }
 
 .brands, .names, .prices {
