@@ -37,11 +37,20 @@ button {
     margin-right: 40px;
 }
 
+@media (max-width: 700px) {
+    * {
+        display: flex;
+        flex-direction: column;
+    }
+    }
+
+
+
 #brand, #name, #price, #image, #favorite {
    
     display: inline-block;
     padding: 15px;
-    overflow: hidden;
+    /* overflow: hidden; */
     width: 17%;
     font-size: xx-large;
     
