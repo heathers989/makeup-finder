@@ -38,10 +38,22 @@ button {
 }
 
 @media (max-width: 700px) {
-    * {
-        display: flex;
-        flex-direction: column;
+   * {
+       display: flex;
+       flex-direction: column;
+   }
+    img {
+        max-width: 40px;
     }
+
+    #headers {
+        display: none;
+    }
+    
+    .product {
+        margin-bottom: 5px;
+    }
+   
     }
 
 
